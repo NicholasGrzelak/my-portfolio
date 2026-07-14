@@ -1,0 +1,106 @@
+---
+// src/components/ApproveButton.astro
+// A "stamp of approval" click counter. Counts one click per browser
+// (localStorage) and reports it as an event to GoatCounter, which stores the
+// total. Shows "—" until profile.goatCounterCode is set.
+import { profile } from "../data/profile.js";
+
+const code = profile.goatCounterCode;
+---
+
+<div class="approve">
+  <button id="approve-btn" class="approve-btn" type="button">
+    Approve this sheet
+  </button>
+  <p class="approve-count label">
+    <span id="approve-count">—</span> approvals to date
+  </p>
+</div>
+
+<script define:vars={{ code }}>
+  const btn = document.getElementById("approve-btn");
+  const out = document.getElementById("approve-count");
+  const KEY = "sheet-approved";
+
+  function markApproved() {
+    btn.textContent = "Approved ✓";
+    btn.disabled = true;
+  }
+
+  if (localStorage.getItem(KEY)) markApproved();
+
+  // Fetch the running total from GoatCounter (if configured).
+  async function refreshCount() {
+    if (!code) return;
+    try {
+      const r = await fetch(
+        `https://${code}.goatcounter.com/counter/approve-button.json`
+      );
+      if (r.ok) {
+        const data = await r.json();
+        const n = String(data.count).replace(/[^\d]/g, "");
+        out.textContent = n === "" ? "0" : n;
+      }
+    } catch {
+      /* leave the dash */
+    }
+  }
+  refreshCount();
+
+  btn.addEventListener("click", () => {
+    if (!localStorage.getItem(KEY)) {
+      localStorage.setItem(KEY, "1");
+      // Record the click as a GoatCounter event.
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: "approve-button",
+          title: "Approve button",
+          event: true,
+        });
+      }
+      // Optimistically bump the displayed number.
+      const n = parseInt((out.textContent || "").replace(/\D/g, ""), 10);
+      if (!Number.isNaN(n)) out.textContent = String(n + 1);
+    }
+    markApproved();
+  });
+</script>
+
+<style>
+  .approve {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .approve-btn {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+  }
+
+  .approve-btn:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .approve-btn:disabled {
+    cursor: default;
+    opacity: 0.65;
+  }
+
+  .approve-count {
+    margin: 0;
+  }
+</style>

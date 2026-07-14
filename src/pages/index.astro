@@ -1,11 +1,274 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+import ProjectItem from "../components/ProjectItem.astro";
+import ApproveButton from "../components/ApproveButton.astro";
+import { projects, sections } from "../data/projects.js";
+import { skillGroups } from "../data/skills.js";
+import { profile } from "../data/profile.js";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Map each skill name -> list of project codes that use it.
+const refMap = new Map();
+for (const p of projects) {
+  for (const s of p.skills ?? []) {
+    if (!refMap.has(s)) refMap.set(s, []);
+    refMap.get(s).push(p.code);
+  }
+}
+
+// Build grouped rows from skills.js, attaching project refs where they exist.
+const grouped = skillGroups.map((g) => ({
+  label: g.label,
+  skills: g.skills.map((name) => ({ name, refs: refMap.get(name) ?? [] })),
+}));
+
+// Any skill used by a project but not filed in a group goes into "Other".
+const categorized = new Set(skillGroups.flatMap((g) => g.skills));
+const uncategorized = [...refMap.keys()]
+  .filter((name) => !categorized.has(name))
+  .sort((a, b) => a.localeCompare(b));
+if (uncategorized.length > 0) {
+  grouped.push({
+    label: "Other",
+    skills: uncategorized.map((name) => ({ name, refs: refMap.get(name) })),
+  });
+}
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={`${profile.name} — ${profile.role}`}>
+  <!-- Hero -->
+  <section class="hero">
+    <p class="label">{profile.role}</p>
+    <h1>
+      I design, analyze, and build mechanisms — from research prototypes to
+      weekend machines.
+    </h1>
+    <p class="hero-sub">
+      This is a working record of that: published and in-progress research,
+      personal builds, and the miscellaneous fixtures, tools, and experiments
+      in between.
+    </p>
+    <p class="hero-links">
+      {
+        profile.links.map((l) => (
+          <a href={l.href} target="_blank" rel="noopener">
+            {l.label}
+          </a>
+        ))
+      }
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2 class="label section-label">Skills</h2>
+    <table class="skills-table">
+      <tbody>
+        {
+          grouped.map((g) => (
+            <tr>
+              <th scope="row">{g.label}</th>
+              <td>
+                <span class="skill-row">
+                  {g.skills.map((s) => (
+                    <span class="skill">
+                      {s.name}
+                      {s.refs.length > 0 && (
+                        <span class="refs">
+                          {s.refs.map((code, j) => (
+                            <Fragment>
+                              {j > 0 && ", "}
+                              <a href={`#${code}`}>{code}</a>
+                            </Fragment>
+                          ))}
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </span>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Project sections, generated from src/data/projects.js -->
+  {
+    sections.map((sec) => (
+      <section id={sec.id} class="section">
+        <h2 class="label section-label">{sec.label}</h2>
+        {projects
+          .filter((p) => p.section === sec.id)
+          .map((p) => (
+            <ProjectItem
+              code={p.code}
+              title={p.title}
+              description={p.description}
+              meta={[p.year, ...(p.skills ?? [])].join(" · ")}
+              href={p.href}
+            />
+          ))}
+      </section>
+    ))
+  }
+
+  <!-- Affiliations -->
+  {
+    profile.affiliations?.length > 0 && (
+      <section id="affiliations" class="section">
+        <h2 class="label section-label">Affiliations</h2>
+        <ul class="affiliations">
+          {profile.affiliations.map((a) => (
+            <li>{a}</li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <ApproveButton />
 </Layout>
+
+<style>
+  .hero {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+    max-width: 22ch;
+    margin-top: 1.25rem;
+  }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .hero-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .section {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .section-label {
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  /* ---- Skills table (grouped rows) ---- */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .skills-table th {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: left;
+    vertical-align: top;
+    padding: 0.85rem 1.5rem 0.85rem 0;
+    width: 1%;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skills-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .skills-table tr:last-child th,
+  .skills-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.4rem;
+    row-gap: 0.35rem;
+  }
+
+  .skill {
+    white-space: nowrap;
+  }
+
+  .refs {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-left: 0.35em;
+  }
+
+  .refs::before {
+    content: "[";
+  }
+
+  .refs::after {
+    content: "]";
+  }
+
+  .refs a {
+    text-decoration-color: var(--rule);
+  }
+
+  .refs a:hover {
+    text-decoration-color: var(--ink);
+    color: var(--ink);
+  }
+
+  /* ---- Affiliations ---- */
+  .affiliations {
+    list-style: none;
+    margin: 0;
+    padding: 1.25rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2.25rem;
+    row-gap: 0.5rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 560px) {
+    /* Stack the group label above its skills on narrow screens */
+    .skills-table,
+    .skills-table tbody,
+    .skills-table tr,
+    .skills-table th,
+    .skills-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .skills-table th {
+      padding: 0.85rem 0 0.35rem;
+      border-bottom: none;
+    }
+
+    .skills-table td {
+      padding: 0 0 0.85rem;
+    }
+  }
+</style>

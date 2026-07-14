@@ -1,23 +1,244 @@
+---
+// src/layouts/Layout.astro
+import { profile } from "../data/profile.js";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = `Portfolio of ${profile.name} — ${profile.role.toLowerCase()}. Research, personal builds, and miscellaneous work.`,
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    {
+      profile.goatCounterCode && (
+        <script
+          is:inline
+          async
+          data-goatcounter={`https://${profile.goatCounterCode}.goatcounter.com/count`}
+          src="https://gc.zgo.at/count.js"
+        />
+      )
+    }
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/">{profile.name}</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#skills">Skills</a>
+        <a href="/#research">Research</a>
+        <a href="/#builds">Builds</a>
+        <a href="/#misc">Misc</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <!-- Title block, in the spirit of an engineering drawing -->
+      <div class="titleblock">
+        <span class="titleblock-cell">DRAWN BY {profile.name.toUpperCase()}</span>
+        <span class="titleblock-cell">PORTFOLIO · REV 02</span>
+        <span class="titleblock-cell">SHEET 1 OF 1 · 2026</span>
+      </div>
+    </footer>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    --bg: #e7e4dd; /* dark off-white */
+    --ink: #161513; /* near-black text */
+    --ink-soft: #55524b; /* secondary text, still monochrome */
+    --rule: rgba(22, 21, 19, 0.22); /* hairline dividers */
+    --rule-strong: rgba(22, 21, 19, 0.6);
+
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+
+    --measure: 46rem; /* content width */
+    --pad: clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0 auto;
+    max-width: calc(var(--measure) + 2 * var(--pad));
+    padding: 0 var(--pad);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 1rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--rule-strong);
+    transition: text-decoration-color 120ms ease;
+  }
+
+  a:hover {
+    text-decoration-color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Anchored elements land with breathing room below the viewport top */
+  [id] {
+    scroll-margin-top: 2rem;
+  }
+
+  /* Small uppercase monospace labels, used like drawing annotations */
+  .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---- Header ---- */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 2rem 0 1.25rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .wordmark {
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .site-nav a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+
+  .site-nav a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  /* ---- Footer title block ---- */
+  .site-footer {
+    margin: 5rem 0 2.5rem;
+  }
+
+  .titleblock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid var(--rule-strong);
+  }
+
+  .titleblock-cell {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    padding: 0.6rem 0.8rem;
+  }
+
+  .titleblock-cell + .titleblock-cell {
+    border-left: 1px solid var(--rule-strong);
+  }
+
+  @media (max-width: 560px) {
+    .site-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .titleblock {
+      grid-template-columns: 1fr;
+    }
+
+    .titleblock-cell + .titleblock-cell {
+      border-left: none;
+      border-top: 1px solid var(--rule-strong);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition: none !important;
+    }
+  }
 </style>

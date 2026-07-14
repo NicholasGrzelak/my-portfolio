@@ -1,0 +1,78 @@
+---
+// src/components/ProjectItem.astro
+interface Props {
+  code: string; // drawing-style index, e.g. "R-001", "PB-002", "M-001"
+  title: string;
+  description: string;
+  meta?: string; // e.g. "2025 · SolidWorks · FEA"
+  href?: string; // link to a project page, optional
+}
+
+const { code, title, description, meta, href } = Astro.props;
+---
+
+<article class="project" id={code}>
+  <div class="project-head">
+    {
+      href ? (
+        <a class="project-title" href={href}>
+          {title}
+        </a>
+      ) : (
+        <span class="project-title">{title}</span>
+      )
+    }
+    <span class="project-code">{code}</span>
+  </div>
+  <p class="project-desc">{description}</p>
+  {meta && <p class="project-meta">{meta}</p>}
+</article>
+
+<style>
+  .project {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .project:last-of-type {
+    border-bottom: none;
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  span.project-title {
+    text-decoration: none;
+  }
+
+  .project-code {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .project-desc {
+    margin: 0.4rem 0 0;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .project-meta {
+    margin: 0.5rem 0 0;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+</style>

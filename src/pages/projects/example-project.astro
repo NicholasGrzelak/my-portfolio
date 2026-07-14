@@ -1,0 +1,120 @@
+---
+// src/pages/projects/example-project.astro
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Belt-driven pen plotter — Nicholas Surname">
+  <article class="project-page">
+    <header class="project-header">
+      <p class="label">PB-001 · Personal Build</p>
+      <h1>Belt-driven pen plotter</h1>
+      <p class="project-lede">
+        A CoreXY plotter designed from scratch: custom extrusion frame, printed
+        motion components, and a small G-code sender written in Python.
+      </p>
+      <p class="label project-facts">
+        2025 · Fusion 360 · FDM printing · Python
+      </p>
+    </header>
+
+    <!--
+      Images: drop files into the /public folder of your project, e.g.
+      public/projects/plotter/render-01.jpg, then reference them from the
+      site root like below. Delete this placeholder block once you have
+      real images.
+    -->
+    <figure class="project-figure">
+      <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div>
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 1 — Isometric render, rev C frame</figcaption>
+    </figure>
+
+    <h2>Overview</h2>
+    <p>
+      A few sentences on what the project is, why you built it, and what the
+      end result was. Lead with the outcome — what it does, what it achieved —
+      before the process.
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      Walk through the interesting decisions: why CoreXY over cartesian, how
+      the belt tensioning works, what failed in rev A and what changed in rev
+      B. This is the part that makes a portfolio more than a resume — show
+      your reasoning, not just the finished part.
+    </p>
+
+    <figure class="project-figure">
+      <div class="img-placeholder" aria-hidden="true">
+        PHOTO — ASSEMBLED MACHINE (replace with your image)
+      </div>
+      <figcaption class="label">FIG. 2 — Assembled machine, first plot</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      Quantify where you can: positional repeatability, print time, cost,
+      cycle counts. Numbers read as engineering; adjectives read as marketing.
+    </p>
+
+    <p class="back-link"><a href="/">← Back to index</a></p>
+  </article>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 4rem 0 1rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-top: 1rem;
+  }
+
+  .project-lede {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .project-facts {
+    margin-top: 1.25rem;
+  }
+
+  .project-page h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .project-figure {
+    margin: 2.5rem 0;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.6rem;
+  }
+
+  .img-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3.5rem;
+  }
+</style>
