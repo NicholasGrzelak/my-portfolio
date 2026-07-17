@@ -15,7 +15,7 @@
 //   href        optional link to a project page in src/pages/projects/
 
 export const sections = [
-  { id: "research", label: "Research" },
+  { id: "masters research", label: "Master's Research" },
   { id: "builds", label: "Personal Builds" },
   { id: "misc", label: "Miscellaneous" },
 ];
@@ -23,58 +23,89 @@ export const sections = [
 export const projects = [
   {
     code: "R-001",
-    section: "research",
-    title: "Compliant mechanism stiffness study",
+    section: "masters research",
+    title: "Scanning microscope for self driving labs",
     description:
-      "Characterizing out-of-plane stiffness in flexure-based linkages, with FEA validated against physical test coupons.",
-    year: "2025",
-    skills: ["SolidWorks", "Ansys FEA", "Python", "Flexure design"],
+      "Designed, built and characterized a scanning microscope to integrate within a custom Unet cell segmentation model.",
+    year: "2026",
+    skills: ["Autodesk Inventor", "3D printing (FDM)", "Gcode", "Python", "Machine Vision"],
     href: "/projects/example-project",
   },
   {
     code: "R-002",
-    section: "research",
-    title: "Topology-optimized bracket validation",
+    section: "masters research",
+    title: "Robotic hot swappable end effectors for self driving labs",
     description:
-      "Comparing print-in-place optimized geometry against a conventionally machined baseline under cyclic load.",
-    year: "2024",
-    skills: ["nTop", "Topology optimization", "Instron testing"],
+      "Survied research to unify multiple frameworks creating a suite of swapable end effectors including a gripper and a set of pipettes.",
+    year: "2026",
+    skills: ["Autodesk Inventor", "Altium Designer", "PCB Design", "3D printing (FDM)", "3D printing (SLA)", "Python", "Mechanism Design"],
+    href: "/projects/example-project",
+  },
+  {
+    code: "R-003",
+    section: "masters research",
+    title: "Modular centrifuge for self driving labs",
+    description:
+      "Created a modular swinging bucket centrifuge capable of sustaining accelerations up to 1000g.",
+    year: "2025",
+    skills: ["Autodesk Inventor","DC Motor Control", "Sensor Integration", "3D printing (FDM)", "Lathe", "Python"],
+    href: "/projects/example-project",
+  },
+  {
+    code: "R-004",
+    section: "masters research",
+    title: "Robotic gantry for self driving labs",
+    description:
+      "5 DOF gantry robot with a work envelope of 400 mm x 600 mm x 300 mm to act as the body of an SDL.",
+    year: "2025",
+    skills: ["Autodesk Inventor", "Parametric modeling", "3D printing (FDM)", "Milling", "Lathe","Python", "Gcode", "Robotic design"],
+    href: "/projects/example-project",
   },
   {
     code: "PB-001",
     section: "builds",
-    title: "Belt-driven pen plotter",
+    title: "Catan counter",
     description:
-      "A CoreXY plotter designed from scratch: custom extrusion frame, printed motion components, and a small G-code sender written in Python.",
-    year: "2025",
-    skills: ["Fusion 360", "3D printing (FDM)", "Python", "Motion system design"],
+      "Have friends that take long terms in the hit board game Catan? Show them how long they are taking and get cool stats including dice rolls and player wins.",
+    year: "2026",
+    skills: ["Autodesk Inventor", "3D printing (FDM)", "C++", "Arduino"],
     href: "/projects/example-project",
   },
   {
     code: "PB-002",
     section: "builds",
-    title: "Compliant gripper",
+    title: "Coin Organizer (CAD$)",
     description:
-      "Single-piece printed gripper using flexure joints instead of pins — no assembly, no fasteners.",
+      "Too many coins laying around? Put them in a coin organizer to make grabbing change easy.",
     year: "2024",
+    skills: ["SolidWorks", "3D printing (FDM)", "Flexure design"],
+  },
+  {
+    code: "PB-003",
+    section: "builds",
+    title: "Medical CRM",
+    description:
+      "Customer relationship management platform for hearing aid clinics to generate leads and schedule appointments.",
+    year: "2023",
+    skills: ["SolidWorks", "3D printing (FDM)", "Flexure design"],
+  },
+  {
+    code: "PB-004",
+    section: "builds",
+    title: "Text analyzer",
+    description:
+      "Too many coins laying around? Put them in a coin organizer to make grabbing change easy.",
+    year: "2019",
     skills: ["SolidWorks", "3D printing (FDM)", "Flexure design"],
   },
   {
     code: "M-001",
     section: "misc",
-    title: "Shop fixtures and jigs",
+    title: "Dice poker board",
     description:
-      "A running collection of workholding fixtures, drill guides, and assembly jigs designed for one-off jobs.",
-    year: "Ongoing",
-    skills: ["Fixture design", "Milling", "Lathe"],
-  },
-  {
-    code: "M-002",
-    section: "misc",
-    title: "Parametric enclosure library",
-    description:
-      "A small set of parametric project-box models with configurable standoffs, vents, and lid styles.",
-    year: "2023",
-    skills: ["Fusion 360", "Parametric modeling"],
+      "A 4 player board game that turns poker into a board game with dice.",
+    year: "2026",
+    skills: ["Autodesk Inventor", "Laser Cutting"],
+    href: "/projects/example-project",
   },
 ];
