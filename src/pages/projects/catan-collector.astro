@@ -1,0 +1,137 @@
+---
+// src/pages/projects/example-project.astro
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Catan Collector — Nicholas Grzelak">
+  <article class="project-page">
+    <header class="project-header">
+      <p class="label">PB-002 · Personal Build</p>
+      <h1>Catan Collector</h1>
+      <p class="project-lede">
+        After a seeing dice roll after dice roll land on 5 one night (and not my 8s) I was curious
+         to see if a single game was a large enough sample size to have normally distributed dice rolls. 
+         Once the idea of tracking dice was spawned other things could be tracked like wins, and turn times.
+      </p>
+      <p class="label project-facts">
+        2026 · Arduino · Circuit Design · Inventor · FDM printing 
+      </p>
+    </header>
+
+    <!--
+      Images: drop files into the /public folder of your project, e.g.
+      public/projects/plotter/render-01.jpg, then reference them from the
+      site root like below. Delete this placeholder block once you have
+      real images.
+    -->
+    <figure class="project-figure">
+      <!-- <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div> -->
+        <img src="/projects/catancollector/IMG_6175.jpg" alt="Catan Collector Full View" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 1 — Catan Collector Full View</figcaption>
+    </figure>
+
+    <h2>Overview</h2>
+    <p>
+      Turns out most games are normally distributed. Sometimes some rolls are represented more than others
+       but dont bank on 4s. Thats not a real strategy. Like in finance diversity of rolls plays a huge part.
+       Another side effect is that when everyone has a timer going with their name beside it, things get fast. 
+       Like really fast. It does make the games that much more exciting.
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      Initially the project was going to have a much smaller screen with a hat that plugged into the Arduino MEGA and use a Ardunio touchpad to input numbers.
+      I liked the aesthetic as it gave it a mini laptop like shape with controls on the bottom and a screen on top.
+      For this project I tested a variety of print in place hinges, I found that printing the pin with one piece and having the other piece with a clearance hole
+      had the best tolerance, leading to the smoothest movement and least wobble. FIG. 2 below shows the original prototype with the connected touchpad. Ultimately the touch pad and bottom half
+      were never used as my roommate lent me a whooping 5 in touchscreen for this project.
+    </p>
+
+    <figure class="project-figure">
+      <img src="/projects/catancollector/IMG_5326.jpg" alt="Catan Collector Screen Picture" />
+      <figcaption class="label">FIG. 2 — Assembled machine, first plot</figcaption>
+    </figure>
+
+    <p>
+      The Catan Counter has an initialization screen to select players in the order that game will be played.
+      Once more than 3 players are selected a game can commence by hitting the start. Then once the first players 
+      rolls the dice and enters it by hitting the number on the graph, a counter will begin for that players turn. 
+      The players turn is considered done when the next person enters their dice roll.
+    </p>
+
+     <figure class="project-figure">
+      <img src="/projects/catancollector/IMG_5192.jpg" alt="Catan Collector Results" />
+      <figcaption class="label">FIG. 3 — Catan Collector Results</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      Unfortunately game stats could not be saved as the touch screen blocks the sd card slot. 
+      Aggregate stats could not be kept but it was still fun to keep track of stats in a single game.
+      The touch screen also would not accurately map where the screen was pressed so sometimes a few presses were needed.
+      If I did this project again I would a much smaller microcontroller, something like the rp2040, this would allow for a smaller footprint,
+      quick response times and an ease of programming.
+    </p>
+
+    <p class="back-link"><a href="/">← Back to index</a></p>
+  </article>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 4rem 0 1rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-top: 1rem;
+  }
+
+  .project-lede {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .project-facts {
+    margin-top: 1.25rem;
+  }
+
+  .project-page h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .project-figure {
+    margin: 2.5rem 0;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.6rem;
+  }
+
+  .img-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3.5rem;
+  }
+</style>

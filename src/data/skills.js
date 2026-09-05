@@ -12,32 +12,36 @@
 export const skillGroups = [
   {
     label: "CAD",
-    skills: ["Fusion 360", "Inventor", "SolidWorks", "Altium", "nTop"],
-  },
-  {
-    label: "Coding",
-    skills: ["Python", "MATLAB", "C++"],
-  },
-  {
-    label: "Analysis & testing",
-    skills: ["Ansys FEA", "Topology optimization", "Instron testing"],
+    skills: ["Fusion 360", "Autodesk Inventor", "Altium Designer"],
   },
   {
     label: "Fabrication",
-    skills: ["3D printing (FDM)", "Milling", "Lathe", "TIG welding"],
+    skills: ["3D printing (FDM)", "3D printing (SLA)", "Milling", "Lathe","Laser Cutting"],
+  },
+  {
+    label:"Electronics",
+    skills:["Arduino","ESP32","Circuit Design","PCB Design","Sensor Integration"],
+  },
+  {
+    label: "Analysis & testing",
+    skills: ["DC Motor Control","FEA", "Instron testing"],
+  },
+  {
+    label: "Coding",
+    skills: ["Python", "MATLAB", "C++", "Gcode"],
   },
   {
     label: "Machine learning",
-    skills: ["TensorFlow", "PyTorch"],
+    skills: ["TensorFlow", "PyTorch","Machine Vision"],
   },
   {
     label: "Design methods",
     skills: [
-      "Flexure design",
-      "Fixture design",
       "Motion system design",
+      "Robotic design",
       "Parametric modeling",
       "GD&T",
+      "Mechanism Design",
       "DFM / DFA",
     ],
   },

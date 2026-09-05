@@ -2,16 +2,16 @@
 // One place for your identity — used by the header, hero, footer, and titles.
 
 export const profile = {
-  name: "Nicholas Surname",
-  role: "Mechanical Design Engineer",
+  name: "Nicholas Grzelak",
+  role: "Mechatronics Engineer",
 
   // Social / academic links, shown in the hero.
   links: [
-    { label: "GitHub", href: "https://github.com/your-username" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-profile" },
+    { label: "GitHub", href: "https://github.com/NicholasGrzelak" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/nicholasgrzelak/" },
     {
       label: "Google Scholar",
-      href: "https://scholar.google.com/citations?user=YOUR_ID",
+      href: "https://scholar.google.ca/citations?user=2wYYKp0AAAAJ&hl=en",
     },
   ],
 

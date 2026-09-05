@@ -1,0 +1,119 @@
+---
+// src/pages/projects/example-project.astro
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Dice Poker — Nicholas Grzelak">
+  <article class="project-page">
+    <header class="project-header">
+      <p class="label">M-001 · Misc Build</p>
+      <h1>Dice Poker Board</h1>
+      <p class="project-lede">
+        A 4 person poker like game that relies on dice, wits and teamwork.
+      </p>
+      <p class="label project-facts">
+        2026 · Autodesk Inventor · Laser Cutting · DFM / DFA
+      </p>
+    </header>
+
+    <!--
+      Images: drop files into the /public folder of your project, e.g.
+      public/projects/plotter/render-01.jpg, then reference them from the
+      site root like below. Delete this placeholder block once you have
+      real images.
+    -->
+    <figure class="project-figure">
+      <img src="/projects/dicepoker/IMG_5043.jpg" alt="Freshly Engraved Dice Poker Board" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 1 — Freshly Engraved Dice Poker Board</figcaption>
+    </figure>
+
+    <h2>Overview</h2>
+    <p>
+      This was a gift that someone wanted and I thought how hard could it be?
+      This project showed me the limitations of Inventor and also it showed me the limits
+       of my laser cutting pipeline.
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      The game was inspired by many online versions so coming up with the design was easy.
+      It was fun to use Inventor to make the houses, it required constant tweaking of parameters.
+    </p>
+    <p>
+      CADing all the squares was tricky, initially I thought I could make a single template and then copy that onto the 9x9 board 
+      but that kind of sketch brought Inventor to a crawl. Instead I relied on smaller patterns and used mirrors where possible.
+    </p>
+    <p>
+      I was designing for the laser and knew that it would be slow to have all the inner area engraved so thats why most of the board is outlined.
+      I liked the design choice and it seperates it from some of the other boards online. However on the laser cutter I didnt configure the cut for vector engraving
+      and the raster engraving took.... 11 hours. Yeah thats a long time and a big mistake.
+    </p>
+
+    
+
+    <h2>Results</h2>
+    <p>
+      Besides some of the computational issues in CAD and the laser configuration the board came out well. There is a flaw somewhere on the board if you can spot it.
+      After the cut I did some sanding and applied a clear coat. It came out okay, I definetly need some future wood working projects to get better with my finishing.
+    </p>
+
+    <p class="back-link"><a href="/">← Back to index</a></p>
+  </article>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 4rem 0 1rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-top: 1rem;
+  }
+
+  .project-lede {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .project-facts {
+    margin-top: 1.25rem;
+  }
+
+  .project-page h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .project-figure {
+    margin: 2.5rem 0;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.6rem;
+  }
+
+  .img-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3.5rem;
+  }
+</style>

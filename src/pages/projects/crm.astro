@@ -1,0 +1,128 @@
+---
+// src/pages/projects/example-project.astro
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Medical CRM — Nicholas Grzelak">
+  <article class="project-page">
+    <header class="project-header">
+      <p class="label">PB-004 · Personal Build</p>
+      <h1>Medical CRM</h1>
+      <p class="project-lede">
+        Customer management tool for medical clinics. Used to log patients, write notes, record purchases and categorize followups
+      </p>
+      <p class="label project-facts">
+        2023 · Python · UI/UX
+      </p>
+    </header>
+
+    <!--
+      Images: drop files into the /public folder of your project, e.g.
+      public/projects/plotter/render-01.jpg, then reference them from the
+      site root like below. Delete this placeholder block once you have
+      real images.
+    -->
+    <figure class="project-figure">
+      <!-- <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div> -->
+        <img src="/projects/crm/CRMlogin.jpg" alt="CRM login page" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 1 — CRM login page</figcaption>
+    </figure>
+
+    <h2>Overview</h2>
+    <p>
+      The basic functionality of this app was for a clinic to track and manage their patients. A user would sign in, and be able to add a patient that they 
+      have just seen, and then in time of their choosing they could have a reminder to follow up with the patient. Not only does it make it easier for clinicians 
+      to keep track of followups all the information and patient notes would be accessible to them. The app would also record sales allowing invoicing and reciepts to be
+      managed.
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      I tried to make it a sleek design, I took some inspiration from other CRMs like Salesforce. 
+      The app was made you Dash in python and bootstrap was used to give it a modern UI.
+      The hashing and encryption was done with the cryptograph package.
+      The encryption keys were stored with a password protect in a pickle file. 
+      SQL was used to manage client information and do checks.
+      The app had the capability to import clients and pricing schemes through a .csv file.
+    </p>
+
+    <figure class="project-figure">
+      <!-- <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div> -->
+        <img src="/projects/crm/CRMclient.jpg" alt="CRM Client Addition" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 2 — CRM Client Addition</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      The project taught me the basics of security by using a user encryption key to hide senstive data and hashing to store passwords. 
+      This was one of the first big projects that I used github for, I tracked issues and maintained version controls.
+      I also improved on my UI/UX design skills by building a python app for a customer and got feedback on the design. I tried
+      to deploy the app onto AWS but was not successful and in the days before large LLM models troubleshooting was a large task.
+      Unfortunately the project was never used and abandoned during my undergrad
+    </p>
+
+    <p class="back-link"><a href="/">← Back to index</a></p>
+  </article>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 4rem 0 1rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-top: 1rem;
+  }
+
+  .project-lede {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .project-facts {
+    margin-top: 1.25rem;
+  }
+
+  .project-page h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .project-figure {
+    margin: 2.5rem 0;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.6rem;
+  }
+
+  .img-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3.5rem;
+  }
+</style>

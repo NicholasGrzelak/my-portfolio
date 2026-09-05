@@ -1,0 +1,122 @@
+---
+// src/pages/projects/example-project.astro
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Stock Scanner — Nicholas Grzelak">
+  <article class="project-page">
+    <header class="project-header">
+      <p class="label">PB-005 · Personal Build</p>
+      <h1>Stock Scanner</h1>
+      <p class="project-lede">
+        Unified app to track and manage equities in multiple currecies.
+      </p>
+      <p class="label project-facts">
+        2022 · Python · UI/UX
+      </p>
+    </header>
+
+    <!--
+      Images: drop files into the /public folder of your project, e.g.
+      public/projects/plotter/render-01.jpg, then reference them from the
+      site root like below. Delete this placeholder block once you have
+      real images.
+    -->
+    <figure class="project-figure">
+      <!-- <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div> -->
+        <img src="/projects/stockscan/StockScannerMain.jpg" alt="Stock Scanner Landing Page" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 1 — Stock Scanner Landing Page</figcaption>
+    </figure>
+
+    <h2>Overview</h2>
+    <p>
+      This side project was designed becuase some web brokers do not unify holdings together and keep everything seperated by account (CAD vs USD)
+    </p>
+
+    <h2>Design</h2>
+    <p>
+      After learning about Dash Plotly during one of my internships I wanted to explore its features more and design a web app that I could use for stock tracking.
+      This interactive web app was completely written in Python with packages such as: yfinance for data scrapping, Dash for UI, Plotly for graphing.
+    </p>
+
+    <figure class="project-figure">
+      <!-- <div class="img-placeholder" aria-hidden="true">
+        RENDER — ISO VIEW (replace with your image)
+      </div> -->
+        <img src="/projects/stockscan/stockscannergraph.jpg" alt="CRM login page" />
+      <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
+      <figcaption class="label">FIG. 2 — Graphing feature of Stock Scanner</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      While ambitions for the app were high including stock analysis and net portfolio gains many of those features had minimal implementation or never implemented at all.
+      A variety of problems were present: yfinance would update frequently and break scrapping features, slow load times when more than 5 stocks were added (lots of data was downloaded)
+      and limited time during the school year. If I were to make this again I would try another package instead of yfinance to prevent constant breaking. Although some data is cached and 
+      data acquisitons were simplified constantly downloading all stock data each time the page was refreshed slowed down the interface. I would log data like the industry once
+       and save historical prices so that only new data needed to be acquired. This project was not for waste though as it taught me dataframe management and honed my 
+       skills in python. Both of those have helped me to this day.
+    </p>
+
+    <p class="back-link"><a href="/">← Back to index</a></p>
+  </article>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 4rem 0 1rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-header h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin-top: 1rem;
+  }
+
+  .project-lede {
+    margin-top: 1.25rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .project-facts {
+    margin-top: 1.25rem;
+  }
+
+  .project-page h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  .project-figure {
+    margin: 2.5rem 0;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.6rem;
+  }
+
+  .img-placeholder {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3.5rem;
+  }
+</style>
