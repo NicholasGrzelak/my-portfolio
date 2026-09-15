@@ -1,5 +1,5 @@
 ---
-// src/pages/projects/example-project.astro
+// src/pages/projects/crm.astro
 import Layout from "../../layouts/Layout.astro";
 ---
 
@@ -9,7 +9,7 @@ import Layout from "../../layouts/Layout.astro";
       <p class="label">PB-004 · Personal Build</p>
       <h1>Medical CRM</h1>
       <p class="project-lede">
-        Customer management tool for medical clinics. Used to log patients, write notes, record purchases and categorize followups
+        Customer management tool for medical clinics. Used to log patients, write notes, record purchases and categorize follow-ups.
       </p>
       <p class="label project-facts">
         2023 · Python · UI/UX
@@ -33,18 +33,18 @@ import Layout from "../../layouts/Layout.astro";
 
     <h2>Overview</h2>
     <p>
-      The basic functionality of this app was for a clinic to track and manage their patients. A user would sign in, and be able to add a patient that they 
-      have just seen, and then in time of their choosing they could have a reminder to follow up with the patient. Not only does it make it easier for clinicians 
-      to keep track of followups all the information and patient notes would be accessible to them. The app would also record sales allowing invoicing and reciepts to be
+      The basic functionality of this app was for a clinic to track and manage their patients. A user would sign in and be able to add a patient that they
+      have just seen, and then at a time of their choosing they could have a reminder to follow up with the patient. Not only did it make it easier for clinicians
+      to keep track of follow-ups, all the information and patient notes would be accessible to them. The app would also record sales, allowing invoicing and receipts to be
       managed.
     </p>
 
     <h2>Design</h2>
     <p>
-      I tried to make it a sleek design, I took some inspiration from other CRMs like Salesforce. 
-      The app was made you Dash in python and bootstrap was used to give it a modern UI.
-      The hashing and encryption was done with the cryptograph package.
-      The encryption keys were stored with a password protect in a pickle file. 
+      I tried to make it a sleek design by taking some inspiration from other CRMs like Salesforce. 
+      The app was made using Dash in Python, and Bootstrap was used to give it a modern UI.
+      The hashing and encryption was done with the cryptography package.
+      The encryption keys were stored with password protection in a pickle file.
       SQL was used to manage client information and do checks.
       The app had the capability to import clients and pricing schemes through a .csv file.
     </p>
@@ -53,18 +53,18 @@ import Layout from "../../layouts/Layout.astro";
       <!-- <div class="img-placeholder" aria-hidden="true">
         RENDER — ISO VIEW (replace with your image)
       </div> -->
-        <img src="/projects/crm/CRMclient.jpg" alt="CRM Client Addition" />
+        <img src="/projects/crm/CRMclient.jpg" alt="CRM client addition screen" />
       <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
-      <figcaption class="label">FIG. 2 — CRM Client Addition</figcaption>
+      <figcaption class="label">FIG. 2 — CRM client addition screen</figcaption>
     </figure>
 
     <h2>Results</h2>
     <p>
-      The project taught me the basics of security by using a user encryption key to hide senstive data and hashing to store passwords. 
-      This was one of the first big projects that I used github for, I tracked issues and maintained version controls.
-      I also improved on my UI/UX design skills by building a python app for a customer and got feedback on the design. I tried
-      to deploy the app onto AWS but was not successful and in the days before large LLM models troubleshooting was a large task.
-      Unfortunately the project was never used and abandoned during my undergrad
+      The project taught me the basics of security by using a user encryption key to hide sensitive data and hashing to store passwords. 
+      This was one of the first big projects that I used GitHub for; I tracked issues and maintained version control.
+      I also improved my UI/UX design skills by building a Python app for a customer and getting feedback on the design. I tried
+      to deploy the app onto AWS but was not successful, and in the days before LLMs, troubleshooting was a slow task.
+      Unfortunately the project was never used, and it was abandoned during my undergrad.
     </p>
 
     <p class="back-link"><a href="/">← Back to index</a></p>

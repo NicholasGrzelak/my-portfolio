@@ -1,5 +1,5 @@
 ---
-// src/pages/projects/example-project.astro
+// src/pages/projects/catan-collector.astro
 import Layout from "../../layouts/Layout.astro";
 ---
 
@@ -9,12 +9,12 @@ import Layout from "../../layouts/Layout.astro";
       <p class="label">PB-002 · Personal Build</p>
       <h1>Catan Collector</h1>
       <p class="project-lede">
-        After a seeing dice roll after dice roll land on 5 one night (and not my 8s) I was curious
-         to see if a single game was a large enough sample size to have normally distributed dice rolls. 
-         Once the idea of tracking dice was spawned other things could be tracked like wins, and turn times.
+        After seeing dice roll after dice roll land on 5 one night (and not my 8s), I was curious
+         to see if a single game was a large enough sample size to have normally distributed dice rolls.
+         Once the idea of tracking dice was spawned, other things could be tracked like wins and turn times.
       </p>
       <p class="label project-facts">
-        2026 · Arduino · Circuit Design · Inventor · FDM printing 
+        2026 · Arduino · Circuit design · Autodesk Inventor · 3D printing (FDM)
       </p>
     </header>
 
@@ -35,31 +35,31 @@ import Layout from "../../layouts/Layout.astro";
 
     <h2>Overview</h2>
     <p>
-      Turns out most games are normally distributed. Sometimes some rolls are represented more than others
-       but dont bank on 4s. Thats not a real strategy. Like in finance diversity of rolls plays a huge part.
+      Turns out most games are normally distributed. Sometimes some rolls are represented more than others,
+       but don't bank on 4s. That's not a real strategy. Like in finance, diversity of rolls plays a huge part.
        Another side effect is that when everyone has a timer going with their name beside it, things get fast. 
        Like really fast. It does make the games that much more exciting.
     </p>
 
     <h2>Design</h2>
     <p>
-      Initially the project was going to have a much smaller screen with a hat that plugged into the Arduino MEGA and use a Ardunio touchpad to input numbers.
-      I liked the aesthetic as it gave it a mini laptop like shape with controls on the bottom and a screen on top.
-      For this project I tested a variety of print in place hinges, I found that printing the pin with one piece and having the other piece with a clearance hole
-      had the best tolerance, leading to the smoothest movement and least wobble. FIG. 2 below shows the original prototype with the connected touchpad. Ultimately the touch pad and bottom half
-      were never used as my roommate lent me a whooping 5 in touchscreen for this project.
+      Initially the project was going to have a much smaller screen with a hat that plugged into the Arduino Mega and use an Arduino touchpad to input numbers.
+      I liked the aesthetic, as it gave it a mini-laptop-like shape with controls on the bottom and a screen on top.
+      For this project I tested a variety of print-in-place hinges. I found that printing the pin with one piece and having the other piece with a clearance hole
+      had the best tolerance, leading to the smoothest movement and least wobble. FIG. 2 below shows the original prototype with the connected touchpad. Ultimately the touchpad and bottom half
+      were never used, as my roommate lent me a whopping 5-inch touchscreen for this project.
     </p>
 
     <figure class="project-figure">
-      <img src="/projects/catancollector/IMG_5326.jpg" alt="Catan Collector Screen Picture" />
-      <figcaption class="label">FIG. 2 — Assembled machine, first plot</figcaption>
+      <img src="/projects/catancollector/IMG_5326.jpg" alt="Keypad wired Arduino" />
+      <figcaption class="label">FIG. 2 — Version 0.1 (Arduino Mega wired with Keypad)</figcaption>
     </figure>
 
     <p>
-      The Catan Counter has an initialization screen to select players in the order that game will be played.
-      Once more than 3 players are selected a game can commence by hitting the start. Then once the first players 
-      rolls the dice and enters it by hitting the number on the graph, a counter will begin for that players turn. 
-      The players turn is considered done when the next person enters their dice roll.
+      The Catan Collector has an initialization screen to select players in the order that the game will be played.
+      Once more than 3 players are selected, a game can commence by hitting start. Then, once the first player
+      rolls the dice and enters it by hitting the number on the graph, a counter will begin for that player's turn.
+      The player's turn is considered done when the next person enters their dice roll.
     </p>
 
      <figure class="project-figure">
@@ -69,11 +69,11 @@ import Layout from "../../layouts/Layout.astro";
 
     <h2>Results</h2>
     <p>
-      Unfortunately game stats could not be saved as the touch screen blocks the sd card slot. 
-      Aggregate stats could not be kept but it was still fun to keep track of stats in a single game.
-      The touch screen also would not accurately map where the screen was pressed so sometimes a few presses were needed.
-      If I did this project again I would a much smaller microcontroller, something like the rp2040, this would allow for a smaller footprint,
-      quick response times and an ease of programming.
+      Unfortunately game stats could not be saved, as the touchscreen blocks the SD card slot.
+      Aggregate stats could not be kept, but it was still fun to keep track of stats in a single game.
+      The touchscreen also would not accurately map where the screen was pressed, so sometimes a few presses were needed.
+      If I did this project again I would use a much smaller microcontroller, something like the RP2040. That would allow for a smaller footprint,
+      quicker response times and easier programming.
     </p>
 
     <p class="back-link"><a href="/">← Back to index</a></p>

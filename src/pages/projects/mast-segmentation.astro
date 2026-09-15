@@ -1,19 +1,18 @@
 ---
-// src/pages/projects/example-project.astro
+// src/pages/projects/mast-segmentation.astro
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout title="Belt-driven pen plotter — Nicholas Grzelak">
+<Layout title="Cell Segmentation U-Net Model — Nicholas Grzelak">
   <article class="project-page">
     <header class="project-header">
-      <p class="label">PB-001 · Personal Build</p>
-      <h1>Belt-driven pen plotter</h1>
+      <p class="label">R-005 · Master's Research</p>
+      <h1>Cell Segmentation U-Net Model</h1>
       <p class="project-lede">
-        A CoreXY plotter designed from scratch: custom extrusion frame, printed
-        motion components, and a small G-code sender written in Python.
+        Cell classification and segmentation model trained on a Kaggle dataset.
       </p>
       <p class="label project-facts">
-        2025 · Fusion 360 · FDM printing · Python
+        2025 · Python · PyTorch · Machine vision · Data augmentation
       </p>
     </header>
 
@@ -24,39 +23,37 @@ import Layout from "../../layouts/Layout.astro";
       real images.
     -->
     <figure class="project-figure">
-      <div class="img-placeholder" aria-hidden="true">
-        RENDER — ISO VIEW (replace with your image)
-      </div>
+      <img src="/projects/seg/cellimages.png" alt="Segmentation Model Results" />
       <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
-      <figcaption class="label">FIG. 1 — Isometric render, rev C frame</figcaption>
+      <figcaption class="label">FIG. 1 — Left: raw cell image; middle: labelled data; right: mask predicted by the custom model</figcaption>
     </figure>
 
     <h2>Overview</h2>
     <p>
-      A few sentences on what the project is, why you built it, and what the
-      end result was. Lead with the outcome — what it does, what it achieved —
-      before the process.
+      This project was initially developed to test cell segmentation and verify a pipeline which would later be used in my self-driving lab work.
     </p>
 
     <h2>Design</h2>
     <p>
-      Walk through the interesting decisions: why CoreXY over cartesian, how
-      the belt tensioning works, what failed in rev A and what changed in rev
-      B. This is the part that makes a portfolio more than a resume — show
-      your reasoning, not just the finished part.
+      Like many methods in the literature, I used a pre-trained U-Net before training on another 4000 images. The images were a combination of regular and augmented images,
+       since the original <a href="https://www.kaggle.com/counting-cells-in-microscopy-images-2023">Kaggle dataset</a> was sparse. 65% of the 4000 images were augmented with
+       rotations, flips and Gaussian blur.
+
+       After the model generated a black and white image mask, OpenCV was used to count the number of cells within the mask.
     </p>
 
-    <figure class="project-figure">
+    <!-- <figure class="project-figure">
       <div class="img-placeholder" aria-hidden="true">
         PHOTO — ASSEMBLED MACHINE (replace with your image)
       </div>
       <figcaption class="label">FIG. 2 — Assembled machine, first plot</figcaption>
-    </figure>
+    </figure> -->
 
     <h2>Results</h2>
     <p>
-      Quantify where you can: positional repeatability, print time, cost,
-      cycle counts. Numbers read as engineering; adjectives read as marketing.
+      After 100 epochs, the model achieved a pixel accuracy of 95.83% on test data. In total, the model overpredicted the cell count by 2.27%. This model laid the foundation
+       for developing an optical scanner specifically for the purpose of cell counting. While the model here was not state of the art, it proved that cells could be counted
+      with reasonable accuracy using optical methods. Future work can compare this U-Net model to other models in the literature, or to other cell types and densities.
     </p>
 
     <p class="back-link"><a href="/">← Back to index</a></p>

@@ -28,5 +28,5 @@ export const profile = {
   // For the "approve" click counter. Sign up free at goatcounter.com,
   // pick a code (e.g. "nicholas-portfolio"), and put it here.
   // Leave empty ("") and the counter shows a dash until configured.
-  goatCounterCode: "",
+  goatCounterCode: "nicholas-portfolio",
 };

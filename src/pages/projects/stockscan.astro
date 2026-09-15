@@ -1,5 +1,5 @@
 ---
-// src/pages/projects/example-project.astro
+// src/pages/projects/stockscan.astro
 import Layout from "../../layouts/Layout.astro";
 ---
 
@@ -9,7 +9,7 @@ import Layout from "../../layouts/Layout.astro";
       <p class="label">PB-005 · Personal Build</p>
       <h1>Stock Scanner</h1>
       <p class="project-lede">
-        Unified app to track and manage equities in multiple currecies.
+        Unified app to track and manage equities in multiple currencies.
       </p>
       <p class="label project-facts">
         2022 · Python · UI/UX
@@ -33,32 +33,32 @@ import Layout from "../../layouts/Layout.astro";
 
     <h2>Overview</h2>
     <p>
-      This side project was designed becuase some web brokers do not unify holdings together and keep everything seperated by account (CAD vs USD)
+      This side project was designed because some web brokers do not unify holdings together, and keep everything separated by account (CAD vs USD).
     </p>
 
     <h2>Design</h2>
     <p>
-      After learning about Dash Plotly during one of my internships I wanted to explore its features more and design a web app that I could use for stock tracking.
-      This interactive web app was completely written in Python with packages such as: yfinance for data scrapping, Dash for UI, Plotly for graphing.
+      After learning about Dash Plotly during one of my internships, I wanted to explore its features more and design a web app that I could use for stock tracking.
+      This interactive web app was completely written in Python with packages such as yfinance for data scraping, Dash for UI and Plotly for graphing.
     </p>
 
     <figure class="project-figure">
       <!-- <div class="img-placeholder" aria-hidden="true">
         RENDER — ISO VIEW (replace with your image)
       </div> -->
-        <img src="/projects/stockscan/stockscannergraph.jpg" alt="CRM login page" />
+        <img src="/projects/stockscan/stockscannergraph.jpg" alt="Graph Data" />
       <!-- <img src="/projects/plotter/render-01.jpg" alt="Isometric CAD render of the plotter frame" /> -->
       <figcaption class="label">FIG. 2 — Graphing feature of Stock Scanner</figcaption>
     </figure>
 
     <h2>Results</h2>
     <p>
-      While ambitions for the app were high including stock analysis and net portfolio gains many of those features had minimal implementation or never implemented at all.
-      A variety of problems were present: yfinance would update frequently and break scrapping features, slow load times when more than 5 stocks were added (lots of data was downloaded)
-      and limited time during the school year. If I were to make this again I would try another package instead of yfinance to prevent constant breaking. Although some data is cached and 
-      data acquisitons were simplified constantly downloading all stock data each time the page was refreshed slowed down the interface. I would log data like the industry once
-       and save historical prices so that only new data needed to be acquired. This project was not for waste though as it taught me dataframe management and honed my 
-       skills in python. Both of those have helped me to this day.
+      While ambitions for the app were high, including stock analysis and net portfolio gains, many of those features had minimal implementation or were never implemented at all.
+      A variety of problems were present: yfinance would update frequently and break scraping features, load times were slow when more than 5 stocks were added (lots of data was downloaded),
+      and time was limited during the school year. If I were to make this again, I would try another package instead of yfinance to prevent constant breaking. Although some data was cached and
+      data acquisitions were simplified, constantly downloading all stock data each time the page was refreshed slowed down the interface. I would log data like the industry once
+       and save historical prices so that only new data needed to be acquired. This project was not a waste though, as it taught me dataframe management and honed my
+       skills in Python. Both of those have helped me to this day.
     </p>
 
     <p class="back-link"><a href="/">← Back to index</a></p>

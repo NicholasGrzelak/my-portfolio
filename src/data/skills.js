@@ -8,6 +8,9 @@
 //   that's how you add skills manually.
 // - A skill used in a project but not filed in any group lands in an
 //   automatic "Other" row, so nothing gets lost.
+//
+// Naming: sentence case, except proper nouns (Autodesk Inventor, PyTorch)
+// and acronyms (FEA, PCB, GD&T).
 
 export const skillGroups = [
   {
@@ -16,23 +19,35 @@ export const skillGroups = [
   },
   {
     label: "Fabrication",
-    skills: ["3D printing (FDM)", "3D printing (SLA)", "Milling", "Lathe","Laser Cutting"],
+    skills: [
+      "3D printing (FDM)",
+      "3D printing (SLA)",
+      "Milling",
+      "Lathe",
+      "Laser cutting",
+    ],
   },
   {
-    label:"Electronics",
-    skills:["Arduino","ESP32","Circuit Design","PCB Design","Sensor Integration"],
+    label: "Electronics",
+    skills: [
+      "Arduino",
+      "ESP32",
+      "Circuit design",
+      "PCB design",
+      "Sensor integration",
+    ],
   },
   {
     label: "Analysis & testing",
-    skills: ["DC Motor Control","FEA", "Instron testing"],
+    skills: ["DC motor control", "FEA", "Instron testing"],
   },
   {
     label: "Coding",
-    skills: ["Python", "MATLAB", "C++", "Gcode"],
+    skills: ["Python", "MATLAB", "C++", "G-code"],
   },
   {
     label: "Machine learning",
-    skills: ["TensorFlow", "PyTorch","Machine Vision"],
+    skills: ["TensorFlow", "PyTorch", "Machine vision", "Data augmentation"],
   },
   {
     label: "Design methods",
@@ -41,8 +56,9 @@ export const skillGroups = [
       "Robotic design",
       "Parametric modeling",
       "GD&T",
-      "Mechanism Design",
+      "Mechanism design",
       "DFM / DFA",
+      "UI/UX",
     ],
   },
 ];

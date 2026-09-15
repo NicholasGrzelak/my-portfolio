@@ -15,7 +15,7 @@
 //   href        optional link to a project page in src/pages/projects/
 
 export const sections = [
-  { id: "masters research", label: "Master's Research" },
+  { id: "research", label: "Master's Research" },
   { id: "builds", label: "Personal Builds" },
   { id: "misc", label: "Miscellaneous" },
 ];
@@ -23,55 +23,86 @@ export const sections = [
 export const projects = [
   {
     code: "R-001",
-    section: "masters research",
-    title: "Scanning microscope for self driving labs (WIP)",
+    section: "research",
+    title: "Scanning microscope for self-driving labs (WIP)",
     description:
-      "Designed, built and characterized a scanning microscope to integrate within a custom Unet cell segmentation model.",
+      "Designed, built and characterized a scanning microscope to feed a custom U-Net cell segmentation model.",
     year: "2026",
-    skills: ["Autodesk Inventor", "3D printing (FDM)", "Gcode", "Python", "Machine Vision"],
+    skills: [
+      "Autodesk Inventor",
+      "3D printing (FDM)",
+      "G-code",
+      "Python",
+      "Machine vision",
+    ],
   },
   {
     code: "R-002",
-    section: "masters research",
-    title: "Robotic hot swappable end effectors for self driving labs (WIP)",
+    section: "research",
+    title: "Hot-swappable robotic end effectors for self-driving labs (WIP)",
     description:
-      "Survied research to unify multiple frameworks creating a suite of swapable end effectors including a gripper and a set of pipettes.",
+      "Surveyed research to unify multiple frameworks, creating a suite of swappable end effectors including a gripper and a set of pipettes.",
     year: "2026",
-    skills: ["Autodesk Inventor", "Altium Designer", "PCB Design", "3D printing (FDM)", "3D printing (SLA)", "Python", "Mechanism Design"],
+    skills: [
+      "Autodesk Inventor",
+      "Altium Designer",
+      "PCB design",
+      "3D printing (FDM)",
+      "3D printing (SLA)",
+      "Python",
+      "Mechanism design",
+    ],
   },
   {
     code: "R-003",
-    section: "masters research",
-    title: "Modular centrifuge for self driving labs (WIP)",
+    section: "research",
+    title: "Modular centrifuge for self-driving labs (WIP)",
     description:
-      "Created a modular swinging bucket centrifuge capable of sustaining accelerations up to 1000g.",
+      "Created a modular swinging bucket centrifuge capable of sustaining accelerations up to 1000 g.",
     year: "2025",
-    skills: ["Autodesk Inventor","DC Motor Control", "Sensor Integration", "3D printing (FDM)", "Lathe", "Python"],
+    skills: [
+      "Autodesk Inventor",
+      "DC motor control",
+      "Sensor integration",
+      "3D printing (FDM)",
+      "Lathe",
+      "Python",
+    ],
   },
   {
     code: "R-004",
-    section: "masters research",
-    title: "Robotic gantry for self driving labs (WIP)",
+    section: "research",
+    title: "Robotic gantry for self-driving labs (WIP)",
     description:
       "5 DOF gantry robot with a work envelope of 400 mm x 600 mm x 300 mm to act as the body of an SDL.",
     year: "2025",
-    skills: ["Autodesk Inventor", "Parametric modeling", "3D printing (FDM)", "Milling", "Lathe","Python", "Gcode", "Robotic design"],
+    skills: [
+      "Autodesk Inventor",
+      "Parametric modeling",
+      "3D printing (FDM)",
+      "Milling",
+      "Lathe",
+      "Python",
+      "G-code",
+      "Robotic design",
+    ],
   },
   {
     code: "R-005",
-    section: "masters research",
-    title: "Cell Segmentation UNet Model",
+    section: "research",
+    title: "Cell Segmentation U-Net Model",
     description:
-      "A UNet model able to classify cells with 95% pixel accuracy.",
+      "A U-Net model able to classify cells with 95% pixel accuracy.",
     year: "2025",
-    skills: ["Python", "PyTorch","Machine Vision"],
+    skills: ["Python", "PyTorch", "Machine vision", "Data augmentation"],
+    href: "/projects/mast-segmentation",
   },
   {
     code: "PB-001",
     section: "builds",
-    title: "Nicholasgrzelak.ca",
+    title: "nicholasgrzelak.ca",
     description:
-      "This website that your looking at. Built on the Astro framework with help from Anthropics Claude.",
+      "This website that you are looking at. Built on the Astro framework using Agentic AI.",
     year: "2026",
     skills: ["UI/UX"],
   },
@@ -80,9 +111,14 @@ export const projects = [
     section: "builds",
     title: "Catan Collector",
     description:
-      "Have friends that take long terms in the hit board game Catan? Show them how long they are taking and get cool stats including dice rolls and player wins.",
+      "Have friends that take long turns in the hit board game Catan? Show them how long they are taking and get cool stats including dice rolls and player wins.",
     year: "2026",
-    skills: ["Autodesk Inventor", "3D printing (FDM)", "Circuit Design", "Arduino"],
+    skills: [
+      "Autodesk Inventor",
+      "3D printing (FDM)",
+      "Circuit design",
+      "Arduino",
+    ],
     href: "/projects/catan-collector",
   },
   {
@@ -90,7 +126,7 @@ export const projects = [
     section: "builds",
     title: "Coin Organizer (CAD$)",
     description:
-      "Too many coins laying around? Put them in a coin organizer to make grabbing change easy.",
+      "Too many coins lying around? Put them in a coin organizer to make grabbing change easy.",
     year: "2024",
     skills: ["Autodesk Inventor", "3D printing (FDM)"],
   },
@@ -128,9 +164,9 @@ export const projects = [
     section: "misc",
     title: "Dice poker board",
     description:
-      "A 4 player board game that turns poker into a board game with dice.",
+      "A 4-player board game that turns poker into a game of dice.",
     year: "2026",
-    skills: ["Autodesk Inventor", "Laser Cutting", "DFM / DFA"],
+    skills: ["Autodesk Inventor", "Laser cutting", "DFM / DFA"],
     href: "/projects/dice-poker",
   },
   {
@@ -138,8 +174,8 @@ export const projects = [
     section: "misc",
     title: "Smart Crib Prototype",
     description:
-      "A closed loop smart crib platform, with motors, fans, and a camera.",
+      "A closed-loop smart crib platform, with motors, fans, and a camera.",
     year: "2024",
-    skills: ["ESP32","Sensor Integration", "Circuit Design"],
+    skills: ["ESP32", "Sensor integration", "Circuit design"],
   },
 ];
