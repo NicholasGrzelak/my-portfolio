@@ -24,7 +24,7 @@ export const projects = [
   {
     code: "R-001",
     section: "research",
-    title: "Scanning microscope for self-driving labs (WIP)",
+    title: "Scanning Microscope for Self-Driving Labs (WIP)",
     description:
       "Designed, built and characterized a scanning microscope to feed a custom U-Net cell segmentation model.",
     year: "2026",
@@ -39,7 +39,7 @@ export const projects = [
   {
     code: "R-002",
     section: "research",
-    title: "Hot-swappable robotic end effectors for self-driving labs (WIP)",
+    title: "Hot-Swappable Robotic End Effectors for Self-Driving Labs (WIP)",
     description:
       "Surveyed research to unify multiple frameworks, creating a suite of swappable end effectors including a gripper and a set of pipettes.",
     year: "2026",
@@ -56,7 +56,7 @@ export const projects = [
   {
     code: "R-003",
     section: "research",
-    title: "Modular centrifuge for self-driving labs (WIP)",
+    title: "Modular Centrifuge for Self-Driving Labs (WIP)",
     description:
       "Created a modular swinging bucket centrifuge capable of sustaining accelerations up to 1000 g.",
     year: "2025",
@@ -72,7 +72,7 @@ export const projects = [
   {
     code: "R-004",
     section: "research",
-    title: "Robotic gantry for self-driving labs (WIP)",
+    title: "Robotic Gantry for Self-Driving Labs (WIP)",
     description:
       "5 DOF gantry robot with a work envelope of 400 mm x 600 mm x 300 mm to act as the body of an SDL.",
     year: "2025",
@@ -100,7 +100,7 @@ export const projects = [
   {
     code: "PB-001",
     section: "builds",
-    title: "nicholasgrzelak.ca",
+    title: "Nicholasgrzelak.ca",
     description:
       "This website that you are looking at. Built on the Astro framework using Agentic AI.",
     year: "2026",
@@ -153,7 +153,7 @@ export const projects = [
   {
     code: "PB-006",
     section: "builds",
-    title: "Text analyzer",
+    title: "Text Analyzer",
     description:
       "Intro to Python project to scrape word counts in text messages.",
     year: "2019",
@@ -162,7 +162,7 @@ export const projects = [
   {
     code: "M-001",
     section: "misc",
-    title: "Dice poker board",
+    title: "Dice Poker Board",
     description:
       "A 4-player board game that turns poker into a game of dice.",
     year: "2026",

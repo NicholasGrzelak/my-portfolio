@@ -30,17 +30,19 @@ const code = profile.goatCounterCode;
   if (localStorage.getItem(KEY)) markApproved();
 
   // Fetch the running total from GoatCounter (if configured).
+  // GoatCounter caches this response for hours and answers 404 — with a valid
+  // count of 0 — until the path gets its first hit, so bypass the cache and
+  // read the body regardless of status.
   async function refreshCount() {
     if (!code) return;
     try {
       const r = await fetch(
-        `https://${code}.goatcounter.com/counter/approve-button.json`
+        `https://${code}.goatcounter.com/counter/approve-button.json`,
+        { cache: "no-store" }
       );
-      if (r.ok) {
-        const data = await r.json();
-        const n = String(data.count).replace(/[^\d]/g, "");
-        out.textContent = n === "" ? "0" : n;
-      }
+      const data = await r.json();
+      const n = String(data.count ?? "").replace(/[^\d]/g, "");
+      if (n !== "") out.textContent = n;
     } catch {
       /* leave the dash */
     }
